@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;600;700&display=swap");
+
+:root {
+  --main-color: #3867d6;
+  --light-color: #777;
+  --box-shadow: 0.5rem 0.5rem 0 rgba(7, 95, 196, 0.2);
+  --text-shadow: 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.2);
+  --border: 0.2rem solid var(--main-color);
+}
+
+* {
+  font-family: "Nunito", sans-serif;
+  margin: 0; /* Margem */
+  padding: 0; /* Preenchimento*/
+  box-sizing: border-box; /* Tamanho da caixa */
+  outline: none; /* Contorno */
+  border: none;
+  text-decoration: none; /* Decoração do texto */
+  text-transform: capitalize;
+  transition: 0.2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden; /*não deixa exceder o limite da tela*/
+  scroll-padding-top: 7rem;
+  scroll-behavior: smooth; /*Rolagem de comportamento: suave*/
+}
+
+html::-webkit-scrollbar {
+  width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: #444;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  border-radius: 5rem;
+}
+
+body {
+  background: #222;
+}
+section {
+  padding: 2rem 9%;
+}
+
+.btn {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.8rem 3rem;
+  font-size: 1.7rem;
+  border-radius: 0.5rem;
+  background: #666;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn:hover {
+  background: var(--main-color);
+}
+.header {
+  position: fixed; /* Fixa o Header */
+  top: 0; /* Topo: zero*/
+  left: 0; /* Esquerda: zero*/
+  right: 0; /* Direita: zero*/
+  z-index: 1000; /*especifica a ordem da pilha de um elemento do anúncio*/
+  background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /*alinhar os elementos ao longo do eixo principal:  O primeiro item é deslocado para o início do eixo principal, o último é deslocado para o final do eixo principal e os demais são distribuídos uniformemente entre eles */
+  padding: 1.5rem 9%; /*distância entre o conteúdo de um elemento e suas bordas*/
+}
+
+.header .logo {
+  font-weight: bolder; /*Basicamente é um negrito*/
+  color: #fff;
+  font-size: 2.5rem; /*tamanho da letra(fonte)*/
+}
+
+.header .logo span {
+  color: var(--main-color);
+}
+
+.header .navbar a {
+  font-size: 1.7rem;
+  color: #fff;
+  margin-left: 2rem;
+}
+
+.header .navbar a:hover {
+  color: var(--main-color);
+}
+
+#menu-bars {
+  font-size: 3rem;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+
+/* -------------------------> START HOME <-------------------------  */
+.home .content {
+  text-align: center;
+  padding-top: 6rem;
+  margin: 2rem auto;
+  max-width: 70rem;
+}
+
+.home .content h3 {
+  color: #fff;
+  font-size: 4.5rem;
+  text-transform: uppercase;
+}
+
+.home .home-slider .slide {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-top: 9rem;
+}
+
+.home .home-slider .slide .content {
+  flex: 1 1 45rem;
+}
+
+.home .home-slider .slide .image {
+  flex: 1 1 45rem;
+}
+
+.home .home-slider .slide .image img {
+  width: 100%;
+}
+
+.home .home-slider .slide .content span {
+  text-transform: none;
+  color: #f0f0f0;
+  font-size: 2.5rem;
+}
+
+.home .home-slider .slide .content h3 {
+  color: var(--main-color);
+  font-size: 7rem;
+}
+.home .home-slider .slide .content a {
+  text-transform: none;
+}
+/* -------------------------> HOME END <-------------------------  */
+
+/* -------------------------> ICONS START <-------------------------  */
+.icons-container {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.icons-container .icons {
+  border: var(--border);
+  box-shadow: var(--box-shadow);
+  border-radius: 0.5rem;
+  text-align: center;
+  padding: 2.5rem;
+}
+
+.icons-container .icons i {
+  font-size: 4.5rem;
+  color: var(--main-color);
+  padding-bottom: 0.7rem;
+}
+
+.icons-container .icons h3 {
+  font-size: 2.8rem;
+  color: #f0f0f0;
+  padding: 0.5rem 0;
+  text-shadow: var(--text-shadow);
+}
+
+.icons-container .icons p {
+  font-size: 1.7rem;
+  color: var(--light-color);
+  text-transform: none;
+}
+/* -------------------------> ICONS END <-------------------------  */
+
+/* -------------------------> RESPONSIVO <-------------------------  */
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+  .header {
+    padding: 1.5rem 2rem;
+  }
+  section {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #menu-bars {
+    display: initial; /*Pode ser utilizado para restaurar todas as propriedades para o seu estado inicial.*/
+  }
+  .header .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border-top: 0.1rem solid #222;
+    background: #333;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  .header .navbar.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  .fa-times {
+    transform: rotate(180deg);
+  }
+  .header .navbar a {
+    display: flex;
+    background: #222;
+    border-radius: 0.5rem;
+    padding: 1.3rem;
+    margin: 1.3rem;
+    font-size: 2rem;
+  }
+  .home .content h3 {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+  .home .home-slider .swiper-slide img {
+    width: 27rem;
+  }
+  .home .home-slider .swiper-slide .content h3 {
+    font-size: 5rem;
+  }
+}
